@@ -72,13 +72,15 @@ flowchart TD
 
 The platform does not treat network registration or adapter presence as proof that a live capability is ready. Implementation, configuration, reachability and data availability are evaluated separately.
 
-## Transaction Boundary
+## External-Wallet Transaction Boundary
 
 1. The application prepares or requests a route based on the selected network and current Provider state.
 2. The client presents the intended action to the user.
-3. The user's wallet performs its own approval and signing flow.
+3. For an external-wallet path, the user's wallet performs its own approval and signing flow.
 4. Submission and receipt state are tracked separately from UI intent.
 5. Missing receipts, rejected signatures or unavailable Providers must not be represented as completed execution.
+
+Separately gated signing and operational services can have different trust and authorization boundaries. Their implementation and controls are intentionally outside this public showcase.
 
 ## Intentionally Omitted
 

@@ -2,12 +2,14 @@
 
 This file documents the public security posture at a conceptual level. It does not claim that any system is absolutely secure.
 
-## Non-Custodial Boundary
+## External-Wallet Boundary
 
-- Users retain control of private keys through their wallet software.
-- WhaleLand interfaces initiate wallet requests but do not replace the wallet's approval screen.
-- On-chain actions require explicit user authorization.
+- Users retain control of private keys through their wallet software in external-wallet flows.
+- WhaleLand interfaces can initiate external-wallet requests but do not replace the wallet's approval screen.
+- External-wallet trading actions require explicit user authorization.
 - A prepared transaction is not represented as executed until the relevant result is available.
+
+Separately gated signing or operational services have distinct authorization boundaries and are not documented in this public showcase.
 
 ## Platform Boundaries
 

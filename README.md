@@ -1,180 +1,176 @@
-# WhaleLand Swap · 鲸域交换
+# WhaleLand Swap
 
-> Non-custodial multi-chain Web3 trading and on-chain infrastructure platform.
+> A multi-chain Web3 platform combining non-custodial external-wallet trading, on-chain intelligence, developer APIs, launch infrastructure, liquidity, contract-risk signals, and AI-assisted workflows.
 
-> 非托管多链 Web3 交易与链上基础设施平台，覆盖 DEX 聚合、链上数据、Pool / Launch、Wallet、AI Agent 与平台运营能力。
+`Multi-chain` · `DEX Aggregation` · `On-chain Data` · `Launchpad` · `Liquidity` · `Contract Risk` · `AI Agent` · `Developer API`
 
-[GitHub Profile](https://github.com/goosun-io) · [Architecture](./ARCHITECTURE.md) · [Capabilities](./CAPABILITIES.md) · [API Overview](./API-OVERVIEW.md) · [Security](./SECURITY.md)
+[Architecture](./ARCHITECTURE.md) · [Network Capabilities](./CAPABILITIES.md) · [Developer Platform](./API-OVERVIEW.md) · [Security](./SECURITY.md) · [GitHub Profile](https://github.com/goosun-io)
 
-## Project Overview
+WhaleLand brings market discovery, transaction preparation, liquidity tooling, token-launch workflows, and risk intelligence into one provider-aware product surface. In external-wallet trading flows, users retain control of their private keys and authorize signing through their wallet.
 
-WhaleLand Swap is a non-custodial Web3 product and infrastructure platform designed around multi-chain discovery, wallet-confirmed trading, on-chain data, token launch, liquidity pools and operational tooling.
+This repository is a **public product and technical showcase of a proprietary commercial platform**. It contains documentation and selected product screenshots, not application source code or a deployable distribution.
 
-鲸域交换以多链资产发现、钱包确认交易、链上数据、代币发行、流动性池及平台运营为核心。平台提供交易和数据界面，不托管用户私钥；具体网络与能力是否可用，由独立能力状态和当前 Provider 状态决定。
+## Why WhaleLand
 
-This repository is a **public showcase only**. It contains product documentation and selected screenshots, not the commercial source code or a deployable distribution.
-
-## Core Capabilities
-
-| Area | Product capability |
+| Strength | What it means |
 | --- | --- |
-| Multi-chain Data | Cross-network market discovery, token metadata, price history and provider-aware data states |
-| DEX / Swap | Aggregated quotes, route preparation and wallet-confirmed execution |
-| Chain & Pools | Network registry, capability gating, liquidity discovery and on-chain pool states |
-| Launchpad | Token launch flows, project lifecycle views and explicit network restrictions |
-| Wallet Integration | EVM and ecosystem-specific wallet adapters with user-controlled authorization |
-| Chain Execution | Transaction preparation, execution-state tracking and receipt-aware outcomes |
-| Contract Risk Detection | Provider-backed token and contract risk signals with unavailable states shown explicitly |
-| Discover | Market, ecosystem, news and product discovery surfaces |
-| Community | Community content, governance-oriented modules and engagement surfaces |
-| Benefits | Points, tasks, memberships and benefit presentation modules |
-| API Gateway | Access control, plans, usage governance and productized API surfaces |
-| AI Agent | Data/query and transaction-preparation integration boundaries; execution remains user-authorized |
-| Admin & Operations | Separate operational control surfaces, content operations, analytics and security controls |
+| Capability-aware multi-chain architecture | Network registration is separated from live capability readiness, so unsupported operations are not presented as universally available. |
+| Provider-aware data states | Market, route, history, holder, and risk data can be represented as available, delayed, stale, unconfigured, or unavailable instead of being fabricated. |
+| Wallet-authorized trading | External-wallet trading flows leave approval and signing with the user. Prepared, submitted, and confirmed states remain distinct. |
+| Integrated Web3 workflows | Market intelligence, Swap, Pools, Launch, contract-risk signals, and wallet state share a coherent product and platform boundary. |
+| Developer platform | API domains cover market and token data, multi-chain state, routing, liquidity, launch, risk, execution state, AI-assisted workflows, and platform operations. |
+| Edge-first delivery | The application and API architecture uses Cloudflare Pages, Workers, Hono, D1, and KV with provider orchestration at the edge. |
 
-Capability descriptions indicate platform scope, not a promise that every Provider, network or transaction path is enabled at all times.
+## Product Capabilities
 
-## Engineering Scale
+### Trading & Liquidity
 
-| Metric | Showcase inventory snapshot |
-| --- | ---: |
-| API endpoints | **513** |
-| API domains / categories | **34** |
-| API source files | **43** |
+- Multi-chain market discovery and DEX quote aggregation
+- Route and transaction preparation for supported network paths
+- Swap, pool discovery, and liquidity-state workflows
+- User-authorized external-wallet execution with separate submission and receipt states
 
-These figures describe an internal engineering inventory snapshot. They are scale indicators, not a stable public API contract. No endpoint implementation is included here.
+### Market & On-chain Intelligence
 
-## Supported Networks
+- Token discovery, metadata, current market data, and historical data where available
+- Holder and chain data from supported providers
+- Provider-aware availability and degradation states
+- Cross-network capability checks before dependent operations
 
-The current network registry covers:
+### Launch Infrastructure
 
-- Ethereum
-- BNB Smart Chain
-- Base
-- Arbitrum One
-- Polygon
-- Avalanche C-Chain
-- opBNB
-- Solana
-- Robinhood Chain
-- ENI Mainnet
+- Token-launch and project lifecycle surfaces
+- Network-specific capability controls
+- Separate preparation, signature, submission, and on-chain result states
 
-> **Network registered ≠ all capabilities enabled.**
+### Contract Risk
 
-Each network is evaluated independently for `market`, `rpc`, `wallet`, `swap`, `bridge`, `pool`, `launch`, `holders` and `security`. Historical price data / K-line capability is also tracked independently. Implementation, configuration, reachability and real data availability are separate states; an adapter or registry entry alone does not prove production readiness.
+- Provider-backed contract and token risk signals
+- Network-aware security capability checks
+- Explicit unavailable or incomplete states when evidence cannot be obtained
 
-See [CAPABILITIES.md](./CAPABILITIES.md) for the conceptual model.
+### Wallet & Execution
 
-## Architecture
+- EVM and Solana wallet integration boundaries
+- User-controlled private keys and wallet approval in external-wallet flows
+- Transaction preparation and receipt-aware tracking
+- Separately gated signing or operational services are outside this public showcase boundary
+
+### AI-assisted Workflows
+
+The AI surface connects product guidance, search and query, market intelligence, and transaction-preparation workflows when the relevant service is available. The assistant is read-only and Provider-dependent; agent interfaces support data, preparation, and post-broadcast tracking rather than autonomous signing or trading.
+
+## Product Experience
+
+These Desktop screenshots were captured without signing in, connecting a wallet, or loading private account data. The selection prioritizes clear product surfaces; Provider-unavailable and not-yet-live pages are intentionally omitted from the README.
+
+### Desktop
+
+| Product Home | Multi-chain Markets |
+| --- | --- |
+| ![WhaleLand product home](./assets/screenshots/home.png) | ![WhaleLand multi-chain markets](./assets/screenshots/markets.png) |
+
+| Token Launch | Contract Risk |
+| --- | --- |
+| ![WhaleLand token launch](./assets/screenshots/launch.png) | ![WhaleLand contract-risk intelligence](./assets/screenshots/contract-risk.png) |
+
+No Admin or operations imagery is published because account, permission, analytics, billing, and business data require a stricter disclosure boundary.
+
+## Developer Platform
+
+WhaleLand's platform interfaces are organized around product capabilities rather than a single undifferentiated endpoint list:
+
+| Domain | Developer capability |
+| --- | --- |
+| Market & Token Data | Discovery, metadata, prices, history, holder data, and normalized availability states |
+| Multi-chain Data | Network registry, chain state, capability resolution, and cross-chain status |
+| DEX Quotes & Routing | Quote discovery, route preparation, and execution-state separation |
+| Pools & Launch | Liquidity discovery, pool state, token launch, and lifecycle status |
+| Contract Risk | Provider-backed token and contract signals with explicit degraded states |
+| Wallet & Execution State | Wallet connection boundaries, transaction preparation, submission, and receipt tracking |
+| AI-assisted APIs | Search, query, market intelligence, guidance, and preparation-oriented integration |
+| Platform APIs | Account, access control, analytics, content, notifications, and operational boundaries |
+
+Current static inspection identifies **500+ internal API handlers across 40+ API modules**. These figures are an engineering snapshot, not a claim that 500+ APIs are publicly available or a stable public API contract.
+
+See [API-OVERVIEW.md](./API-OVERVIEW.md) for the public domain inventory, design principles, and disclosure limits.
+
+## Multi-chain Architecture
+
+The current registry recognizes 10 networks across EVM and Solana ecosystems:
+
+`Ethereum` · `BNB Smart Chain` · `Base` · `Arbitrum One` · `Polygon` · `Avalanche C-Chain` · `opBNB` · `Robinhood Chain` · `ENI Mainnet` · `Solana`
+
+> **Registered does not mean every capability is enabled.**
+
+Each network is evaluated independently for `market`, `rpc`, `wallet`, `swap`, `bridge`, `pool`, `launch`, `holders`, and `security`. Historical price data is tracked independently from current market data. Implementation, configuration, Provider reachability, and real data availability are separate states.
+
+See [CAPABILITIES.md](./CAPABILITIES.md) for the capability and state model.
+
+## Security & Non-Custodial Boundary
+
+- External-wallet trading flows leave private-key custody, approval, and signing with the user's wallet.
+- WhaleLand may prepare external-wallet requests or transactions but does not replace wallet confirmation.
+- AI-assisted interfaces provide read, preparation, and tracking boundaries rather than autonomous signing or trading.
+- Missing Provider evidence is surfaced as unavailable or degraded rather than replaced with invented prices, risk results, or receipts.
+- User, wallet, API, Provider, and Admin permissions are separate trust zones.
+- Sensitive configuration belongs in managed runtime secret storage and is excluded from this repository.
+
+This is a system-boundary description, not an absolute security guarantee. See [SECURITY.md](./SECURITY.md).
+
+## Global Edge Infrastructure
+
+WhaleLand is designed around edge-delivered application and API infrastructure with globally distributed request handling.
 
 ```mermaid
-flowchart TD
-    Client["Web / PWA Client"] --> Pages["Cloudflare Pages"]
-    Pages --> Edge["Workers / Hono API"]
-    Edge --> Storage["D1 / KV"]
-    Edge -.-> R2["R2 reserved / optional · currently disabled"]
-    Edge --> Providers["RPC / Market / DEX / Security / External Services"]
-    Wallet["User Wallet"] -->|"explicit authorization"| Client
-    Client -->|"signed transaction or wallet request"| Providers
+flowchart LR
+    User["Web / PWA client"] --> Pages["Cloudflare Pages"]
+    Pages --> API["Workers / Hono API"]
+    API --> Policy["Access policy · capability gates"]
+    Policy --> Data["D1 · KV"]
+    Policy --> Providers["RPC · Market · DEX · Risk Providers"]
+    Wallet["User wallet"] -->|"explicit approval"| User
+    Policy -.-> R2["R2 reserved / optional · disabled"]
 ```
 
-The diagram intentionally omits internal endpoints, credentials, schemas, settlement logic and production configuration. A more detailed public boundary view is available in [ARCHITECTURE.md](./ARCHITECTURE.md).
+Cloudflare R2 remains a reserved, optional capability and is **currently disabled in the active production configuration**. Architecture details intentionally exclude account identifiers, internal hostnames, Provider URLs, operational dashboards, traffic data, and deployment configuration.
 
-## Security & Non-Custodial Model
+See [ARCHITECTURE.md](./ARCHITECTURE.md) for the public system-boundary view.
 
-- User private keys are not included in this repository and are not intended to be stored by the platform.
-- On-chain transactions require explicit wallet authorization; the interface does not replace wallet confirmation.
-- Wallet, signer, application and Admin permissions have separate trust boundaries.
-- API surfaces use access-control and usage-governance layers appropriate to their role.
-- Sensitive configuration belongs in managed runtime secret storage, never in this showcase.
-- Provider failures, missing configuration and unverified data should fail closed or be shown as unavailable rather than fabricated.
+## Engineering Snapshot
 
-This is a boundary description, not an absolute security guarantee. See [SECURITY.md](./SECURITY.md).
+| Metric | Current public snapshot |
+| --- | ---: |
+| Internal API handlers | **500+** |
+| API modules | **40+** |
+| Registered networks | **10** |
 
-## CI/CD & Engineering
+These are engineering-scale indicators, not public API commitments, performance claims, or guarantees of live capability availability.
 
-The commercial project demonstrates:
+## Technology
 
-- GitHub Actions pull-request validation
-- Type checking, linting, unit tests and production builds
-- Preview-oriented validation workflows
-- Exact-source production deployment controls
-- Controlled D1 migration workflows
-- Scheduled catalog / maintenance jobs
+`TypeScript` · `Hono` · `Cloudflare Pages` · `Cloudflare Workers` · `D1` · `KV` · `Vite` · `Tailwind CSS` · `EVM` · `Solana`
 
-Workflow descriptions are included at a capability level only. Production credentials, account identifiers and runnable deployment configuration are intentionally excluded.
+Technology names describe the commercial platform architecture. This showcase contains no runtime source, package manifest, lockfile, infrastructure configuration, or deployment workflow.
 
-## Screenshots
+## Documentation
 
-Screenshots were generated from a clean local build of the current product source without signing in, connecting a wallet or loading private account data. Provider-dependent unavailable states are retained where present.
+| Document | Purpose |
+| --- | --- |
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | Public system boundaries, capability gating, and transaction flow |
+| [CAPABILITIES.md](./CAPABILITIES.md) | Registered networks and the capability-state model |
+| [API-OVERVIEW.md](./API-OVERVIEW.md) | Developer platform domains, principles, and public limits |
+| [SECURITY.md](./SECURITY.md) | Non-custodial, trust-zone, and repository disclosure boundaries |
+| [LICENSE.md](./LICENSE.md) | Copyright and legal usage boundary |
 
-### Product Home
+## Commercial & Technical Cooperation
 
-![WhaleLand product home](./assets/screenshots/home.png)
+WhaleLand is available for technical and commercial discussions involving Web3 platforms, DEX and Swap integration, token-launch infrastructure, multi-chain systems, AI-assisted workflows, developer APIs, and custom software delivery.
 
-### Multi-chain Markets
+Contact [@goosun_io](https://t.me/goosun_io) or visit the [goosun-io GitHub profile](https://github.com/goosun-io). Pricing and private commercial details are not published in this showcase.
 
-![WhaleLand markets](./assets/screenshots/markets.png)
+## Public Repository Boundary
 
-### Swap & Token Detail
-
-![WhaleLand swap and token detail](./assets/screenshots/swap.png)
-
-### Liquidity Pools
-
-![WhaleLand liquidity pools](./assets/screenshots/pools.png)
-
-### Token Launch
-
-![WhaleLand token launch](./assets/screenshots/launch.png)
-
-### Contract Risk Detection
-
-![WhaleLand contract risk detection](./assets/screenshots/contract-risk.png)
-
-### AI Assistant Boundary
-
-![WhaleLand AI assistant boundary](./assets/screenshots/ai-agent.png)
-
-Admin dashboard imagery is deliberately excluded from this public package because operational accounts, permissions and business data require a stricter disclosure review.
-
-## Technology Stack
-
-- TypeScript across edge and application layers
-- Hono-based API composition
-- Cloudflare Pages and Workers
-- D1 and KV managed data capabilities
-- Cloudflare R2 reserved / optional object storage capability, currently disabled in the active production configuration
-- Vite build pipeline
-- Tailwind CSS and product-specific UI systems
-- EVM and Solana wallet integration boundaries
-- Market, DEX, RPC and contract-risk Provider integrations
-
-Technology names describe the architecture; this showcase contains no vendored runtime, lockfile or deployable application bundle.
-
-## Links
-
-- GitHub Profile: [goosun-io](https://github.com/goosun-io)
-- Goosun / WhaleLand contact: [@goosun_io](https://t.me/goosun_io)
-
-The private commercial source repository is intentionally not linked for cloning.
-
-## Commercial / Technical Cooperation
-
-Cooperation areas include:
-
-- Web3 Platform Development
-- DEX / Swap Integration
-- Token Launch / Launchpad
-- Multi-chain Infrastructure
-- AI Agent Integration
-- API Platform
-- Custom Software Development
-
-For technical or commercial enquiries, contact the current Goosun / WhaleLand profile through the links above. No pricing is published in this showcase.
-
-## Public-Repository Boundary
-
-This package is intentionally non-runnable. It does not include application source, smart-contract source, database schemas, migrations, package manifests, environment templates, deployment workflows or production configuration. Cloning this directory cannot produce a complete WhaleLand deployment.
+This package is intentionally non-runnable. It does not include application or Worker source, smart-contract source, database schemas, migrations, environment files, package manifests, internal endpoints, Provider configuration, algorithms, settlement logic, deployment commands, or production infrastructure identifiers.
 
 Copyright © 2026 WhaleLand Labs INC. All rights reserved. See [LICENSE.md](./LICENSE.md).
