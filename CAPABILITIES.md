@@ -33,6 +33,8 @@ WhaleLand Swap uses a capability matrix so that a registered network is not auto
 
 Historical price / K-line data is tracked independently from general market data because a current quote does not prove that candle history is available.
 
+Bridge availability is route-specific and directional; a registered network does not imply general cross-chain bridging.
+
 ## State Model
 
 ```mermaid
@@ -57,6 +59,6 @@ The last two states may be unknown until a real request is observed. Unknown is 
 - An enabled market surface does not imply Swap, Pool, Bridge or Launch availability.
 - A wallet adapter does not prove that a route or Provider is configured.
 - Provider failure may produce delayed, stale or unavailable states.
-- Transaction completion requires wallet authorization and an accepted execution result.
+- External-wallet transaction completion requires wallet authorization and an accepted execution result.
 
 Live capability state can change with Provider health and production configuration. This document intentionally avoids publishing infrastructure configuration or promising universal availability.

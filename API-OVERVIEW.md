@@ -1,70 +1,54 @@
-# API Platform Overview
+# Developer Platform Overview
 
-This is a scale and domain summary only. It is not an API specification and contains no implementation, internal endpoint list, authentication material or runnable examples.
+WhaleLand's API platform connects product, data, execution-state, and operational domains behind capability and access-control boundaries. This document is a public capability summary, not an API specification. It contains no implementation, internal route list, authentication material, or runnable examples.
+
+## Developer Capability Domains
+
+| Domain group | Included capabilities |
+| --- | --- |
+| Market & Token Data | Discovery, metadata, prices, history, holders, news, watchlists, and normalized data states |
+| Multi-chain Data | Chain registry, capability resolution, chain state, bridge status, and cross-network discovery |
+| DEX Quotes & Routing | Quote aggregation, route preparation, orders, and separate preparation, submission, and receipt states |
+| Pools & Liquidity | Pool discovery, liquidity state, and network-specific availability |
+| Launch | Token launch, project lifecycle, and launch-task state |
+| Contract Risk | Provider-backed token and contract signals with explicit unavailable or degraded outcomes |
+| Wallet & Execution State | Wallet integration boundaries, transaction preparation, chain execution state, and receipts |
+| AI-assisted Interfaces | Search, query, guidance, market intelligence, and preparation-oriented workflows |
+| Platform & Account | Identity, profile, access control, sessions, notifications, content, and benefits |
+| Analytics & Operations | Product analytics, integrations, status, content operations, and separated Admin boundaries |
+
+Public availability, authentication, access policy, and versioning are separate concerns for every product surface.
 
 ## Engineering Inventory Snapshot
 
 | Metric | Count |
 | --- | ---: |
-| Endpoint inventory | **513** |
-| Business / platform domains | **34** |
-| API source files | **43** |
+| Internal API handlers | **500+** |
+| API modules | **40+** |
 
-The counts describe an engineering inventory snapshot and may evolve. Public API availability, access policy and versioning are separate concerns.
+These values come from current static inspection and are deliberately rounded. They measure internal engineering scope; they do **not** mean that 500+ APIs are publicly available, documented, or covered by a stable public contract.
 
-## Domain Summary
+## Platform Design Principles
 
-1. Account & Profile
-2. Authentication & Session
-3. Wallet Integration
-4. Orders
-5. Watchlist
-6. Market Data
-7. Token Data
-8. Contract Risk
-9. DEX Routing & Quotes
-10. Pools & Liquidity
-11. Launchpad
-12. Launch Tasks
-13. Chain Registry
-14. Chain Execution
-15. Bridge & Cross-chain Status
-16. Discover
-17. Community
-18. Benefits
-19. Tasks & Rewards
-20. News
-21. Notifications
-22. Banners & Content
-23. Analytics
-24. Media Proxy
-25. Integrations
-26. AI Agent API
-27. AI Assistant
-28. API Gateway & Billing
-29. Bot / Quant Billing
-30. Admin Core
-31. Admin Accounts
-32. Admin Operations & Content
-33. Admin Security & Analytics
-34. Domain & Platform Status
-
-## API Design Principles
-
-- Capability and network checks happen before Provider-dependent operations.
-- Read, preparation, submission and receipt states are not conflated.
-- Access-controlled products are separated from public data surfaces.
-- Provider errors are normalized into explicit unavailable or degraded states.
+- Network and capability checks precede Provider-dependent operations.
+- Read, preparation, submission, and receipt states are not conflated.
+- Public data, authenticated products, and operator-only surfaces have separate access boundaries.
+- Provider errors are normalized into explicit unavailable, delayed, stale, or degraded states.
+- AI-assisted interfaces provide data, preparation, and tracking boundaries rather than autonomous signing or trading.
 - Sensitive configuration is supplied by the managed runtime, not repository content.
-- Admin and user-facing boundaries are separated.
+- Admin and user-facing permissions remain separate.
 
-## Not Included
+## Public Disclosure Boundary
 
-- Complete route paths or request/response schemas
-- Worker / Hono handlers
-- Business rules, settlement or rebate logic
-- Wallet-signing and chain-execution logic
-- Internal Admin mutations
-- Rate-policy values or customer plan details
-- Provider endpoints, credentials or infrastructure identifiers
-- Database schemas, migrations or seed data
+This overview intentionally excludes:
+
+- Complete route paths and request or response schemas
+- Worker and Hono handlers
+- Provider endpoints, credentials, and infrastructure identifiers
+- Database schemas, migrations, and seed data
+- Wallet-signing and chain-execution implementation
+- Trading, launch, settlement, rebate, allocation, or pricing logic
+- Internal Admin mutations and operational controls
+- Rate-policy values, customer plans, and billing rules
+
+For the network readiness model, see [CAPABILITIES.md](./CAPABILITIES.md). For system and security boundaries, see [ARCHITECTURE.md](./ARCHITECTURE.md) and [SECURITY.md](./SECURITY.md).
